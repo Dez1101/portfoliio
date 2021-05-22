@@ -6,3 +6,4 @@ class Blog(models.Model):
     pub_date = models.DateField()
     body_text = models.TextField()
     blog_img = models.ImageField(upload_to='images/')
+    id = models.AutoField(primary_key=True)
