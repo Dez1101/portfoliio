@@ -64,7 +64,7 @@
                 <a class="nav-link" href="#">Resume</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link active" href="#">Blog</a>
               </li>
             </ul>
           </div>
@@ -73,37 +73,22 @@
 </header>
 
 <main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hi there, I am Dez</h1>
-        <p class="lead text-muted">A Computer Engineering graduate with experience working across the full-stack of web development</p>
-        <p>
-          <a href="mailto:dkay1101@gmail.com" class="btn btn-primary my-2">CONTACT ME</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {% for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{job.image.url}}"/>
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+  <div class="container">
+    <h1 class="text-center pt-3">WELCOME TO DEZ' BLOG</h1><br><br>
+    <h2>Latest blogs</h2>
+    <hr>
+    <br>
+    {% for blog in blogs.all %}
+     <a href="#"><h3>{{blog.blog_title}}</h3></a>
+      <br>
+      {{blog.pub_date}}
+      <br>
+      <img class="img-fluid" src="{{blog.blog_img.url}}" height=200 width = 200 alt="">
+      <br>
+      <p>{{blog.summary}}</p>
+      <hr>
+    {% endfor %}
   </div>
-
 </main>
 
 <footer class="text-muted py-5">

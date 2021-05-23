@@ -7,3 +7,6 @@ class Blog(models.Model):
     body_text = models.TextField()
     blog_img = models.ImageField(upload_to='images/')
     id = models.AutoField(primary_key=True)
+
+    def summary(self):
+        return self.body_text[:100]
