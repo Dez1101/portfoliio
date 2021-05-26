@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
-    <title>Dez</title>
+    <title>{{blog.blog_title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
@@ -50,64 +50,42 @@
   <body>
     
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Dez</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="http://wwww.instagram.com/fitpert">Instagram</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% static 'resume.pdf' %}" target="_blank">My CV</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'blogs' %}" >Blog</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Dez</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="http://wwww.instagram.com/fitpert">Instagram</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% static 'resume.pdf' %}" target="_blank">My CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blogs' %}">Blog</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hi there, I am DESIRE KABWANGA</h1>
-        <hr style="color: blue;">
-        <img class="img-fluid" src="{% static 'dez.jpg' %}" height= 300 width = 300 alt=" Resume photo">
-        <hr style="color: blue;">
-        <p class="lead text-muted">A Computer Engineering graduate with experience working across the full-stack of web development</p>
-        <p>
-          <a href="mailto:dkay1101@gmail.com" class="btn btn-primary my-2">CONTACT ME</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {% for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{job.image.url}}"/>
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+  <div class="container">
+    <h2>Latest blogs</h2>
+    <hr>
+    <br>
+    <h1 class="text-center pt-3">{{blog.blog_title}}</h1><br><br>
+      <h6 class="text-center">{{blog.pub_date_pretty}}</h6>
+      <br>
+      <img class="img-fluid" src="{{blog.blog_img.url}}" height=350 width = 350 alt="">
+      <br>
+      <p>{{blog.body_text}}</p>
+      <hr>
   </div>
-
 </main>
 
 <footer class="text-muted py-5">
